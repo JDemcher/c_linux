@@ -3,7 +3,7 @@
 Joseph Demcher
 CS288 - NJIT
 February 2018
-
+ 
 */
 
 #include <stdlib.h>
@@ -13,8 +13,9 @@ int main(int argc, char *argv[]){
 
 
 	/* 
+	   A C program with C library functions, which prints out the first part of a text file onto screen, similar to the head tool in Linux.
 	   arguments: program_name -n #lines pathname
-	   #lines: the number of lines at the beginning of the file to be 		   printed out onto the screen
+	   #lines: the number of lines at the beginning of the file to be printed out onto the screen
 	   pathname: the pathname of the file
 	*/
 
@@ -26,7 +27,7 @@ int main(int argc, char *argv[]){
 	fp = fopen(argv[3], "r");
 	
 	if( fp == NULL ){
-		printf("There was a problem opening the file.");
+		printf("There was a problem opening the file.")
 		return -1;
 	}
 
@@ -34,9 +35,6 @@ int main(int argc, char *argv[]){
 
 	while( numCount < lineNum ){
 		c = fgetc( fp );
-		if( feof(fp) ){
-			break;
-		}
 		printf("%c", c);
 		if( c == '\n'){			
 			numCount++;
