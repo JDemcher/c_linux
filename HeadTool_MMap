@@ -1,0 +1,73 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <fcntl.h>
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <unistd.h>
+#include <sys/mman.h>
+
+
+int main(int argc, char *argv[]){
+	
+    /*
+     
+    arguments: program_name   -n    #lines   pathname
+    #lines: the number of lines at the beginning of the file that should be printed out onto the screen.
+    pathname: the pathname of the file
+     
+    */
+    
+	int fd;
+	int i;
+	char *map;
+	
+	int lineNum = atoi( argv[2] );
+	int numCount = 0;
+	
+	fd = open( argv[3], O_RDONLY );
+	
+	if( fd < 0 ){
+		printf( "There was a problem opening the file." );
+		close(fd);
+		return -1;
+	}
+
+    	struct stat st;
+    	if( stat(argv[3], &st ) != 0 ) {
+        	return 0;
+    	}   
+	size_t fileSize = st.st_size;
+
+	map = mmap( 0, fileSize, PROT_READ, MAP_SHARED, fd, 0 );
+
+	if( map == MAP_FAILED ){
+		close( fd );
+		printf( "There was  problem mapping the file." );
+		return -1;
+	}
+	
+	for( i = 0; numCount < lineNum ; i++ ){
+		char c;
+		c = map[i];
+		printf("%c", c );
+		if( c == '\n' ){
+			numCount++;
+		}
+		if( i == ( fileSize - 1 ) ){
+			numCount = lineNum;
+		}
+	}
+
+	if( munmap( map, fileSize ) == -1 ){
+		printf("Error un-mapping the file.");
+		close( fd );
+		return -1;
+	}
+	
+	close(fd);
+
+
+
+	
+	return 0;
+}
