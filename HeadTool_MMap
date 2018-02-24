@@ -10,7 +10,8 @@
 int main(int argc, char *argv[]){
 	
     /*
-     
+    A C program using mmap(), which prints out the first part of a text file onto screen, similar to the head tool in Linux.
+    
     arguments: program_name   -n    #lines   pathname
     #lines: the number of lines at the beginning of the file that should be printed out onto the screen.
     pathname: the pathname of the file
