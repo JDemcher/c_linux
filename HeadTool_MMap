@@ -5,6 +5,12 @@ Joseph Demcher
 CS288 - NJIT
 February 2018
 
+A C program that uses mmap() to print out the first part of a text file onto screen, similar to the head tool in Linux.
+    
+arguments: program_name   -n    #lines   pathname
+#lines: the number of lines at the beginning of the file that should be printed out onto the screen.
+pathname: the pathname of the file
+
 */
 
 #include <stdio.h>
@@ -17,15 +23,6 @@ February 2018
 
 
 int main(int argc, char *argv[]){
-	
-    /*
-    A C program using mmap(), which prints out the first part of a text file onto screen, similar to the head tool in Linux.
-    
-    arguments: program_name   -n    #lines   pathname
-    #lines: the number of lines at the beginning of the file that should be printed out onto the screen.
-    pathname: the pathname of the file
-     
-    */
     
 	int fd;
 	int i;
@@ -75,9 +72,5 @@ int main(int argc, char *argv[]){
 	}
 	
 	close(fd);
-
-
-
-	
 	return 0;
 }
