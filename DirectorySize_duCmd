@@ -4,7 +4,8 @@ Joseph Demcher
 February 2018
 CS 288
 
-A C program that calculates the total size of the files in a directory and the sub-directories of the directory. Similiar to the du command in Linux.
+A C program that calculates the total size of the files in a directory and the sub-directories of the directory. 
+Similiar to the du command in Linux.
 
 arguments: ./your_program    pathname_of_directory
 
