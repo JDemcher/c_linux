@@ -1,3 +1,15 @@
+/*
+ 
+ Joseph Demcher
+ March 2018
+ CS288
+ 
+ A C program that takes an integer command line argument n, spawns n processes that will each generate a random number between -100 and 100, and then computes and prints out the sum of these random numbers. Each process print sout the random number it generates.
+ 
+ arguments: ./your_program   -n   number_of_processes
+ 
+ */
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <sys/wait.h>
@@ -5,14 +17,6 @@
 #include <unistd.h>
 #include <time.h>
 #include <sys/mman.h>
-
-/*
- 
- A C program that takes an integer command line argument n, spawns n processes that will each generate a random number between -100 and 100, and then computes and prints out the sum of these random numbers. Each process print sout the random number it generates.
- 
- arguments: ./your_program   -n   number_of_processes
- 
- */
 
 void main( int argc, char *argv[] ){
 
