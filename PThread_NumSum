@@ -35,7 +35,7 @@ void *random_num(void *threadid){
 
 void main(int argc, char *argv[]){
 
-	numThreads = atoi( argv[1] );
+	numThreads = atoi( argv[2] );
 	pthread_t threads[ numThreads ];
 
 	counter = 0;
