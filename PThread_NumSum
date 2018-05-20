@@ -34,7 +34,10 @@ void *random_num(void *threadid){
 
 
 void main(int argc, char *argv[]){
-
+	if( argc != 3 ){
+		printf("Invalid command line arguments.");
+		return 0;
+	}
 	numThreads = atoi( argv[2] );
 	pthread_t threads[ numThreads ];
 
@@ -43,8 +46,8 @@ void main(int argc, char *argv[]){
 
 	int rc;
 	long t;
-	for(int i = 0 ; i < numThreads ; i++ ){
+	for(int i = 0 ; i < numThreads ; i++ )
 		rc = pthread_create( &threads[t], NULL, random_num, (void *) t );
-	}
+
 	pthread_exit(NULL);
 }
