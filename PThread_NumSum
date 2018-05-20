@@ -35,7 +35,7 @@ void *random_num(void *threadid){
 
 void main(int argc, char *argv[]){
 	if( argc != 3 ){
-		printf("Invalid command line arguments.");
+		printf("Invalid command line arguments.\n");
 		return 0;
 	}
 	numThreads = atoi( argv[2] );
