@@ -34,7 +34,7 @@ int main(int argc, char *argv[]){
 	fd = open( argv[3], O_RDONLY );
 	
 	if( fd < 0 ){
-		printf( "There was a problem opening the file." );
+		printf( "Error opening the file.\n" );
 		close(fd);
 		return -1;
 	}
@@ -49,7 +49,7 @@ int main(int argc, char *argv[]){
 
 	if( map == MAP_FAILED ){
 		close( fd );
-		printf( "Error mapping the file." );
+		printf( "Error mapping the file.\n" );
 		return -1;
 	}
 	
@@ -66,7 +66,7 @@ int main(int argc, char *argv[]){
 	}
 
 	if( munmap( map, fileSize ) == -1 ){
-		printf("Error un-mapping the file.");
+		printf("Error un-mapping the file.\n");
 		close( fd );
 		return -1;
 	}
