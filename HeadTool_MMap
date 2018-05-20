@@ -49,7 +49,7 @@ int main(int argc, char *argv[]){
 
 	if( map == MAP_FAILED ){
 		close( fd );
-		printf( "There was  problem mapping the file." );
+		printf( "Error mapping the file." );
 		return -1;
 	}
 	
