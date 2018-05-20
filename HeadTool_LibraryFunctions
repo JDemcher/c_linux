@@ -16,6 +16,11 @@ pathname: the pathname of the file
 
 int main(int argc, char *argv[]){
 
+	if( argc != 4 ){
+		printf("Invalid command line arguments.");
+		return 0;
+	}
+
 	FILE *fp;
 	
 	int lineNum = atoi(argv[2]);
@@ -24,7 +29,7 @@ int main(int argc, char *argv[]){
 	fp = fopen(argv[3], "r");
 	
 	if( fp == NULL ){
-		printf("There was a problem opening the file.")
+		printf("There was a problem opening the file.");
 		return -1;
 	}
 
